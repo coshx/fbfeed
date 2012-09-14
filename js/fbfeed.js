@@ -14,13 +14,7 @@ FbFeed.init = function() {
 FbFeed.login = function() {
   Parse.FacebookUtils.logIn(null, {
     success: function(user) {
-      if (!user.existed()) {
-        alert("User signed up and logged in through Facebook!");
-      } else {
-        alert("User logged in through Facebook!");
-      }
-      console.log(user);
-      $("#fbfriends").show();
+      FbFeed.init();
       FbFeed.getFriends();
     },
     error: function(user, error) {
@@ -39,5 +33,4 @@ $(function() {
   FbFeed.init();
 
   $("#fblogin").on('click', FbFeed.login);
-  $("#fbfriends").on('click', FbFeed.getFriends);
 });
