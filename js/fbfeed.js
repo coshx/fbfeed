@@ -30,8 +30,13 @@ FbFeed.getFriends = function() {
 };
 
 FbFeed.addFriend = function(friend) {
-  var friendElement = $("<li>" + friend.name + "</li>");
+  var friendElement = $('<li data-fbid="' + friend.id + '"' + friend.name + "</li>");
   $("#friend-list").append(friendElement);
+  friendElement.on('click', function() {
+    FB.api('/' + $(this).data('fbid'), function(response) {
+      console.log(response);
+    });
+  });
 };
 
 $(function() {
