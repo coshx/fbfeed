@@ -1,26 +1,13 @@
 var FbFeed = {};
 
 FbFeed.init = function() {
-  window.fbAsyncInit = function() {
-    /* see https://parse.com/questions/unable-to-access-fb-graph-api-due-to-inactive-access-tokens */
-    FB.init({
-      appId      : '400503560015485', // App ID
-      channelUrl : '//coshx.github.com/fbfeed/channel.html', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
-
-    Parse.FacebookUtils.init({
-      appId      : '400503560015485', // App ID
-      channelUrl : '//coshx.github.com/fbfeed/channel.html', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
-
-    // Additional initialization code here
-  };
+  Parse.FacebookUtils.init({
+    appId      : '400503560015485', // App ID
+    channelUrl : '//coshx.github.com/fbfeed/channel.html', // Channel File
+    status     : true, // check login status
+    cookie     : true, // enable cookies to allow the server to access the session
+    xfbml      : true  // parse XFBML
+  });
 
   // Load the SDK Asynchronously
   (function(d){
