@@ -34,7 +34,7 @@ FbFeed.addFriend = function(friend) {
   $("#friend-list").append(friendElement);
 
   FB.api('/' + friend.id + '/picture', function(response) {
-    var img = $('img');
+    var img = $('<img>');
     img.attr('src', response.data.url);
     friendElement.prepend(img);
   });
