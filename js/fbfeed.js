@@ -25,8 +25,13 @@ FbFeed.login = function() {
 
 FbFeed.getFriends = function() {
   FB.api('/me/friends', function(response) {
-    console.log(response);
+    $.each(response.data, function(index, friend) { FbFeed.addFriend(friend); });
   });
+};
+
+FbFeed.addFriend = function(friend) {
+  var friendElement = $("<li>" + friend.name + "</li>");
+  $("#friendList").append(friendElement);
 };
 
 $(function() {
