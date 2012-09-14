@@ -28,6 +28,7 @@ FbFeed.login = function() {
       } else {
         alert("User logged in through Facebook!");
       }
+      console.log(user);
       $("#fbfriends").show();
     },
     error: function(user, error) {
