@@ -1,6 +1,7 @@
 var FbFeed = {};
 
 FbFeed.init = function() {
+  Parse.initialize("yRiLmG1WkMXpjfkp1oAjltVzPCkST5Yiv0ErLlDI", "0vt3pMEefnXGAU5JYGGrwmB3mOXE7Y4TfuSFVA3s");
   Parse.FacebookUtils.init({
     appId      : '400503560015485', // App ID
     channelUrl : '//coshx.github.com/fbfeed/channel.html', // Channel File
@@ -38,7 +39,6 @@ FbFeed.getFriends = function(e) {
 
 $(function() {
   FbFeed.init();
-  Parse.initialize("yRiLmG1WkMXpjfkp1oAjltVzPCkST5Yiv0ErLlDI", "0vt3pMEefnXGAU5JYGGrwmB3mOXE7Y4TfuSFVA3s");
 
   $("#fblogin").on('click', FbFeed.login);
   $("#fbfriends").on('click', FbFeed.getFriends);
