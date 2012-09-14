@@ -10,6 +10,15 @@ FbFeed.init = function() {
       xfbml      : true  // parse XFBML
     });
 
+    /* see https://parse.com/questions/unable-to-access-fb-graph-api-due-to-inactive-access-tokens */
+    FB.init({
+      appId      : '400503560015485', // App ID
+      channelUrl : '//coshx.github.com/fbfeed/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+
     // Additional initialization code here
   };
 
