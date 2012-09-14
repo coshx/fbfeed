@@ -39,5 +39,5 @@ body {
   line-height: 13px;
 }
 #fbfriends {
-  display: hidden;
+  display: none;
 }
