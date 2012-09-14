@@ -11,7 +11,7 @@ FbFeed.init = function() {
   });
 }
 
-FbFeed.login = function(e) {
+FbFeed.login = function() {
   Parse.FacebookUtils.logIn(null, {
     success: function(user) {
       if (!user.existed()) {
@@ -27,14 +27,12 @@ FbFeed.login = function(e) {
       alert("User cancelled the Facebook login or did not fully authorize.");
     }
   });
-  e.preventDefault();
 };
 
-FbFeed.getFriends = function(e) {
+FbFeed.getFriends = function() {
   FB.api('/me/friends', function(response) {
     console.log(response);
   });
-  e.preventDefault();
 };
 
 $(function() {
