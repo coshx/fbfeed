@@ -30,12 +30,13 @@ FbFeed.getFriends = function() {
 };
 
 FbFeed.addFriend = function(friend) {
-  var friendElement = $('<li data-fbid="' + friend.id + '"' + friend.name + "</li>");
+  var friendElement = $('<li data-fbid="' + friend.id + '">' + friend.name + "</li>");
   $("#friend-list").append(friendElement);
-  friendElement.on('click', function() {
-    FB.api('/' + $(this).data('fbid'), function(response) {
-      console.log(response);
-    });
+
+  FB.api('/' + friend.id + '/picture', function(response) {
+    var img = $('img');
+    img.src = response.data.url;    
+    friendElement.prepend(img);
   });
 };
 
