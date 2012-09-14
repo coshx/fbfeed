@@ -31,7 +31,7 @@ FbFeed.getFriends = function() {
 
 FbFeed.addFriend = function(friend) {
   var friendElement = $("<li>" + friend.name + "</li>");
-  $("#friendList").append(friendElement);
+  $("#friend-list").append(friendElement);
 };
 
 $(function() {
