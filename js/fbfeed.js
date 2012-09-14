@@ -2,7 +2,8 @@ var FbFeed = {};
 
 FbFeed.init = function() {
   window.fbAsyncInit = function() {
-    Parse.FacebookUtils.init({
+    /* see https://parse.com/questions/unable-to-access-fb-graph-api-due-to-inactive-access-tokens */
+    FB.init({
       appId      : '400503560015485', // App ID
       channelUrl : '//coshx.github.com/fbfeed/channel.html', // Channel File
       status     : true, // check login status
@@ -10,8 +11,7 @@ FbFeed.init = function() {
       xfbml      : true  // parse XFBML
     });
 
-    /* see https://parse.com/questions/unable-to-access-fb-graph-api-due-to-inactive-access-tokens */
-    FB.init({
+    Parse.FacebookUtils.init({
       appId      : '400503560015485', // App ID
       channelUrl : '//coshx.github.com/fbfeed/channel.html', // Channel File
       status     : true, // check login status
@@ -32,7 +32,7 @@ FbFeed.init = function() {
   }(document));
 }
 
-FbFeed.login = function() {
+FbFeed.login = function(e) {
   Parse.FacebookUtils.logIn(null, {
     success: function(user) {
       if (!user.existed()) {
@@ -48,12 +48,14 @@ FbFeed.login = function() {
       alert("User cancelled the Facebook login or did not fully authorize.");
     }
   });
+  e.preventDefault();
 };
 
-FbFeed.getFriends = function() {
+FbFeed.getFriends = function(e) {
   FB.api('/me/friends', function(response) {
     console.log(response);
   });
+  e.preventDefault();
 };
 
 $(function() {
